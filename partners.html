@@ -1,0 +1,319 @@
+<!-- Partners / Testimonials Start -->
+<style>
+  .partners-section {
+    background: linear-gradient(180deg, #0ea5a4, #10b981);
+  }
+  .partners-wrapper {
+    position: relative;
+  }
+  #partners-logos {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 1rem 0;
+  }
+  #partners-logos::-webkit-scrollbar {
+    height: 8px;
+  }
+  #partners-logos::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+  }
+  .partner-item {
+    flex: 0 0 180px;
+  }
+  .partner-card {
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .partner-logo {
+    max-height: 70px;
+    width: auto;
+    object-fit: contain;
+  }
+  .partners-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.25);
+    color: #fff;
+    border: 0;
+    width: 40px;
+    height: 64px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .partners-prev {
+    left: 8px;
+  }
+  .partners-next {
+    right: 8px;
+  }
+  .partners-nav:hover {
+    background: rgba(0, 0, 0, 0.35);
+  }
+  .testi-thumb {
+    width: 140px;
+    height: 100px;
+    object-fit: cover;
+  }
+  .testi-main-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  #testi-main {
+    width: 100%;
+    max-width: 720px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+  .testi-thumb.active {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    border-radius: 6px;
+  }
+  @media (max-width: 576px) {
+    .partner-item {
+      flex: 0 0 120px;
+    }
+    .partner-card {
+      height: 80px;
+    }
+    .partner-logo {
+      max-height: 50px;
+    }
+    .testi-thumb {
+      width: 80px;
+      height: 60px;
+    }
+  }
+</style>
+
+<div class="container-fluid partners-section">
+  <div class="container py-5">
+    <div class="text-center text-white mb-4">
+      <h2 class="font-weight-bold">Đối Tác Vận Chuyển</h2>
+    </div>
+
+    <div class="partners-wrapper mb-4">
+      <button class="partners-nav partners-prev" aria-label="Previous">
+        &#10094;
+      </button>
+      <div id="partners-logos" class="" aria-live="polite">
+        <div class="partner-item">
+          <div class="bg-white p-3 rounded shadow text-center partner-card">
+            <img src="img/partner-dpd.png" alt="DPD" class="partner-logo" />
+          </div>
+        </div>
+        <div class="partner-item">
+          <div class="bg-white p-3 rounded shadow text-center partner-card">
+            <img src="img/partner-dhl.png" alt="DHL" class="partner-logo" />
+          </div>
+        </div>
+        <div class="partner-item">
+          <div class="bg-white p-3 rounded shadow text-center partner-card">
+            <img src="img/partner-fedex.png" alt="FedEx" class="partner-logo" />
+          </div>
+        </div>
+        <div class="partner-item">
+          <div class="bg-white p-3 rounded shadow text-center partner-card">
+            <img src="img/partner-tnt.jpg" alt="TNT" class="partner-logo" />
+          </div>
+        </div>
+        <div class="partner-item">
+          <div class="bg-white p-3 rounded shadow text-center partner-card">
+            <img src="img/partner-ups.png" alt="UPS" class="partner-logo" />
+          </div>
+        </div>
+        <div class="partner-item">
+          <div class="bg-white p-3 rounded shadow text-center partner-card">
+            <img
+              src="img/partner-vnair.png"
+              alt="Vietnam Airlines"
+              class="partner-logo"
+            />
+          </div>
+        </div>
+      </div>
+      <button class="partners-nav partners-next" aria-label="Next">
+        &#10095;
+      </button>
+    </div>
+
+    <div class="text-center bg-light rounded py-4 px-3">
+      <h4 class="text-primary font-weight-bold">
+        Hình Ảnh Và Nhận Xét Của Khách Hàng
+      </h4>
+
+      <div class="testi-main-wrapper">
+        <img id="testi-main" src="img/testi1.png" alt="Khách hàng" />
+      </div>
+
+      <div class="row mt-4 justify-content-center testi-thumbs">
+        <div class="col-6 col-sm-4 col-md-2 mb-3 text-center">
+          <img
+            src="img/testi1.png"
+            class="testi-thumb rounded shadow-sm"
+            alt="Khách 1"
+          />
+        </div>
+        <div class="col-6 col-sm-4 col-md-2 mb-3 text-center">
+          <img
+            src="img/testi2.png"
+            class="testi-thumb rounded shadow-sm"
+            alt="Khách 2"
+          />
+        </div>
+        <div class="col-6 col-sm-4 col-md-2 mb-3 text-center">
+          <img
+            src="img/testi3.png"
+            class="testi-thumb rounded shadow-sm"
+            alt="Khách 3"
+          />
+        </div>
+        <div class="col-6 col-sm-4 col-md-2 mb-3 text-center">
+          <img
+            src="img/testi4.png"
+            class="testi-thumb rounded shadow-sm"
+            alt="Khách 4"
+          />
+        </div>
+      </div>
+
+      <!-- Lightbox modal (opens when clicking main image) -->
+      <div
+        id="testi-modal"
+        style="
+          display: none;
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.75);
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+        "
+      >
+        <button
+          id="testi-modal-close"
+          style="
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 0;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+          "
+        >
+          Đóng ✕
+        </button>
+        <div style="max-width: 90%; max-height: 85%; padding: 12px">
+          <img
+            id="testi-modal-img"
+            src=""
+            alt=""
+            style="
+              max-width: 100%;
+              max-height: 100%;
+              display: block;
+              margin: 0 auto;
+              border-radius: 6px;
+              box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+            "
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const container = document.getElementById("partners-logos");
+    const prev = document.querySelector(".partners-prev");
+    const next = document.querySelector(".partners-next");
+    if (!container) return;
+    const STEP = 220;
+    prev &&
+      prev.addEventListener("click", () =>
+        container.scrollBy({ left: -STEP, behavior: "smooth" })
+      );
+    next &&
+      next.addEventListener("click", () =>
+        container.scrollBy({ left: STEP, behavior: "smooth" })
+      );
+    // Optional: hide arrows if scroll not needed
+    function updateArrows() {
+      if (!prev || !next) return;
+      prev.style.display = container.scrollLeft > 0 ? "flex" : "none";
+      next.style.display =
+        container.scrollWidth - container.clientWidth - container.scrollLeft > 1
+          ? "flex"
+          : "none";
+    }
+    container.addEventListener("scroll", updateArrows);
+    window.addEventListener("resize", updateArrows);
+    // init
+    setTimeout(updateArrows, 100);
+  })();
+</script>
+
+<script>
+  // Testimonial main + lightbox behavior
+  (function () {
+    const modal = document.getElementById("testi-modal");
+    const modalImg = document.getElementById("testi-modal-img");
+    const closeBtn = document.getElementById("testi-modal-close");
+    const main = document.getElementById("testi-main");
+    const thumbs = Array.from(document.querySelectorAll(".testi-thumb"));
+    if (!main || thumbs.length === 0) return;
+
+    // initialize main with first thumb
+    main.src = thumbs[0].src;
+    thumbs[0].classList.add("active");
+
+    thumbs.forEach((img) => {
+      img.addEventListener("click", () => {
+        // swap main
+        main.src = img.src;
+        thumbs.forEach((t) => t.classList.remove("active"));
+        img.classList.add("active");
+      });
+    });
+
+    // clicking main opens modal
+    function openModal() {
+      if (!modal || !modalImg) return;
+      modalImg.src = main.src;
+      modal.style.display = "flex";
+    }
+    main.addEventListener("click", openModal);
+
+    function close() {
+      if (!modal) return;
+      modal.style.display = "none";
+      modalImg.src = "";
+    }
+    closeBtn && closeBtn.addEventListener("click", close);
+    modal &&
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) close();
+      });
+    window.addEventListener("keyup", (e) => {
+      if (e.key === "Escape") close();
+    });
+  })();
+</script>
+
+<!-- Partners / Testimonials End -->
