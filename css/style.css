@@ -10040,3 +10040,11 @@ p,
   margin: 0 15px; /* Khoảng cách hai bên */
   align-self: center;
 }
+/* Đường kẻ phân cách navbar - đẹp, thẳng hàng, không lệch */
+.nav-divider {
+  width: 1px;
+  height: 30px;               /* Chiều cao kẻ, điều chỉnh nếu menu cao hơn/thấp hơn */
+  background-color: #dee2e6;  /* Màu xám nhạt Bootstrap */
+  margin: 0 20px;             /* Khoảng cách hai bên đều nhau */
+  align-self: center;
+}
