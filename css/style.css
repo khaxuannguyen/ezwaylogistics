@@ -10034,3 +10034,9 @@ p,
     padding: 1.2rem !important;
   }
 }
+.nav-separator {
+  color: #aaa; /* Màu xám nhạt để không nổi bật quá */
+  font-size: 1.2rem; /* Kích thước giống chữ menu */
+  margin: 0 15px; /* Khoảng cách hai bên */
+  align-self: center;
+}

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tra Cứu Vận Đơn - EZWAY Logistics</title>
+    <link href="img/favicon.ico" rel="icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&subset=vietnamese&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+      .timeline li {
+        padding-bottom: 1.5rem;
+        border-left: 3px solid #007bff;
+        padding-left: 1rem;
+        position: relative;
+      }
+      .timeline li:before {
+        content: "";
+        width: 12px;
+        height: 12px;
+        background: #007bff;
+        border-radius: 50%;
+        position: absolute;
+        left: -6px;
+        top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Copy nguyên topbar và navbar từ index.html của mày vào đây để giống -->
+    <!-- Topbar (included from topbar.html) -->
+    <div id="topbar-container"></div>
+    <script>
+      fetch("topbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("topbar-container").innerHTML = data;
+        });
+    </script>
+
+    <!-- Navbar Start -->
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+      <nav
+        class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5"
+      >
+        <a href="index.html" class="navbar-brand ml-lg-3">
+          <img
+            src="img/logo.svg"
+            alt="EZWAY Logistics - Moving Made Easy"
+            class="img-fluid"
+            style="height: 150px; width: auto"
+          />
+        </a>
+        <button
+          type="button"
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-between px-lg-3"
+          id="navbarCollapse"
+        >
+          <div class="navbar-nav m-auto py-0">
+            <a href="index.html" class="nav-item nav-link">Trang Chủ</a>
+
+            <div class="nav-separator d-none d-lg-block">|</div>
+            <!-- Dấu phân cách -->
+
+            <a href="about.html" class="nav-item nav-link">Giới Thiệu</a>
+
+            <div class="nav-separator d-none d-lg-block">|</div>
+
+            <a href="service.html" class="nav-item nav-link"
+              >Vận Chuyển Quốc Tế</a
+            >
+
+            <div class="nav-separator d-none d-lg-block">|</div>
+
+            <a href="tracking.html" class="nav-item nav-link active">
+              <i class="fa fa-search mr-2"></i>Tra Cứu Đơn Vận
+            </a>
+
+            <div class="nav-separator d-none d-lg-block">|</div>
+
+            <a href="muaho-hang-my.html" class="nav-item nav-link"
+              >Mua Hộ Hàng Mỹ</a
+            >
+
+            <div class="nav-separator d-none d-lg-block">|</div>
+
+            <a href="blog.html" class="nav-item nav-link">Blog</a>
+
+            <div class="nav-separator d-none d-lg-block">|</div>
+
+            <a href="contact.html" class="nav-item nav-link">Liên Hệ</a>
+          </div>
+          <a
+            href="https://zalo.me/SDT"
+            class="btn btn-primary py-2 px-4 d-none d-lg-block"
+            >Liên Hệ Ngay SDT</a
+          >
+        </div>
+      </nav>
+    </div>
+    <!-- Navbar End -->
+    <!-- Navbar End -->
+    <div
+      class="jumbotron jumbotron-fluid mb-5"
+      style="
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url('img/blog-hero.jpg') center center no-repeat;
+        background-size: cover;
+      "
+    >
+      <div class="container text-center py-5">
+        <h1 class="text-white display-3 mb-4">TRA CỨU VẬN ĐƠN</h1>
+        <p class="text-white h4 mb-5">Theo dõi hành trình hàng hóa realtime</p>
+        <div class="mx-auto" style="max-width: 600px">
+          <div class="input-group">
+            <input
+              type="text"
+              id="trackingCode"
+              class="form-control border-light"
+              style="padding: 30px"
+              placeholder="Nhập mã vận đơn"
+            />
+            <div class="input-group-append">
+              <button onclick="trackPackage()" class="btn btn-primary px-4">
+                Tra Cứu Ngay
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="result" class="mt-5"></div>
+      </div>
+    </div>
+
+    <script>
+      async function trackPackage() {
+        const code = document.getElementById("trackingCode").value.trim();
+        if (!code) {
+          alert("Vui lòng nhập mã vận đơn!");
+          return;
+        }
+
+        const resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = '<p class="text-white">Đang tra cứu...</p>';
+
+        // Dùng proxy miễn phí để tránh CORS và giấu nguồn KSN
+        const proxyUrl =
+          "https://api.allorigins.win/raw?url=" +
+          encodeURIComponent("https://ksnpost.com/code=" + code + "&lang=vi");
+
+        try {
+          const response = await fetch(proxyUrl);
+          const html = await response.text();
+
+          if (html.includes("Không tìm thấy") || html.includes("404")) {
+            resultDiv.innerHTML =
+              '<p class="h3 text-danger">Không tìm thấy thông tin vận đơn. Vui lòng kiểm tra lại mã!</p>';
+            return;
+          }
+
+          // Parse đơn giản bằng DOM (giống PHP trước)
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, "text/html");
+
+          const getText = (selector) =>
+            doc.querySelector(selector)?.textContent.trim() || "N/A";
+
+          const from = getText('[data-label="Từ"] ~ td') || "Việt Nam";
+          const to = getText('[data-label="Đến"] ~ td') || "Quốc tế";
+          const status =
+            doc.querySelector(".transit")?.textContent.trim() ||
+            "Đang vận chuyển";
+
+          // Lịch sử (cách đơn giản nhất)
+          const historyItems = doc.querySelectorAll(
+            ".timeline li, .history-item"
+          );
+          let historyHtml = '<ul class="timeline list-unstyled">';
+          historyItems.forEach((item) => {
+            const time = item.querySelector("strong")?.textContent || "";
+            const desc = item.textContent.replace(time, "").trim();
+            if (time) {
+              historyHtml += `<li><strong class="text-primary">${time}</strong><br>${desc}</li>`;
+            }
+          });
+          historyHtml += "</ul>";
+
+          // Hiển thị kết quả đẹp
+          resultDiv.innerHTML = `
+                    <div class="container bg-light p-5 rounded">
+                        <h2 class="text-center text-primary mb-4">Mã vận đơn: ${code}</h2>
+                        <p class="text-center h4 text-success mb-5">${status}</p>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="card mb-4"><div class="card-header bg-primary text-white">Thông tin</div>
+                                    <div class="card-body">
+                                        <p><strong>Từ:</strong> ${from}</p>
+                                        <p><strong>Đến:</strong> ${to}</p>
+                                    </div>
+                                </div>
+                                <div class="card"><div class="card-header bg-primary text-white">Lịch sử theo dõi</div>
+                                    <div class="card-body">${
+                                      historyHtml || "<p>Chưa có lịch sử</p>"
+                                    }</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 text-center">
+                                <img src="img/logo.svg" alt="EZWAY" style="height:120px" class="mb-3">
+                                <p>Đối tác tin cậy của bạn</p>
+                                <a href="https://zalo.me/SDT" class="btn btn-success">Chat Zalo Ngay</a>
+                            </div>
+                        </div>
+                    </div>`;
+        } catch (e) {
+          resultDiv.innerHTML =
+            '<p class="h3 text-danger">Lỗi kết nối. Vui lòng thử lại sau!</p>';
+        }
+      }
+    </script>
+
+    <!-- Footer giống index --><!-- Footer Start -->
+    <div id="footer-container"></div>
+
+    <script>
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-container").innerHTML = data;
+        });
+    </script>
+    <!-- Giữ nguyên footer cũ của mày, chỉ thay địa chỉ thật + link social -->
+    <!-- ... (copy footer cũ, thay "123 Street, New York" bằng địa chỉ công ty thật) ... -->
+    <!-- Footer End -->
+  </body>
+</html>
