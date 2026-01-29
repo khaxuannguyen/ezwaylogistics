@@ -113,8 +113,8 @@ if (isset($_GET['code']) && trim($_GET['code']) !== '') {
                         <div class="card-body">
                             <img src="img/logo.svg" alt="EZWAY" style="height:100px" class="mb-3">
                             <p>Đối tác vận chuyển quốc tế đáng tin cậy</p>
-                            <p class="font-weight-bold">Hotline: [số điện thoại thật của mày]</p>
-                            <a href="https://zalo.me/SDT" class="btn btn-success">Chat Zalo Ngay</a>
+                            <p class="font-weight-bold">Hotline: 05.8989.9229</p>
+                            <a href="https://zalo.me/0589899229" class="btn btn-success">Chat Zalo Ngay</a>
                         </div>
                     </div>
                 </div>
